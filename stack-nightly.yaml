@@ -1,1 +1,4 @@
 resolver: nightly-2020-10-18 # ghc-8.10.2
+extra-deps:
+- haskell-gi-0.24.5
+- haskell-gi-base-0.24.3

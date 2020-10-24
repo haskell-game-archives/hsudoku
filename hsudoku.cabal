@@ -32,10 +32,7 @@ source-repository head
 common common
   build-depends:
     , base    >=4.12 && <4.15
-    , gi-gtk  ^>=3.0
-
-  -- build-tool-depends:
-  --   hsc2hs:hsc2hs>=0.68.6
+    , gi-gtk  ^>=4.0
 
   ghc-options:      -Wall
   default-language: Haskell2010
@@ -44,10 +41,10 @@ library
   import:          common
   hs-source-dirs:  src
   build-depends:
-    , bytestring       >=0.10 && <0.12
+    , bytestring       >=0.10   && <0.12
     , HandsomeSoup     ^>=0.4
-    , haskell-gi-base  >=0.23 && <0.25
-    , http-client      ^>=0.6 && <0.8
+    , haskell-gi-base  ^>=0.24
+    , http-client      ^>=0.6
     , http-client-tls  ^>=0.3
     , hxt              ^>=9.3
     , text             ^>=1.2
@@ -66,8 +63,9 @@ executable hsudoku
   import:        common
   main-is:       app/Hsudoku.hs
   build-depends:
-    , haskell-gi-base  >=0.23 && <0.25
+    , haskell-gi-base  ^>=0.24
     , hsudoku
+  ghc-options: -O2
 
 test-suite spec
   import:         common
