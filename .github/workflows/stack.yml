@@ -27,6 +27,21 @@ jobs:
         stack-version: "2.5.1"
         enable-stack: true
 
+    - name: Install libralies (linux)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgirepository1.0-dev libwebkit2gtk-4.0-dev libgtksourceview-3.0-dev
+
+    - name: Install libralies (mac)
+      if: runner.os == 'macOS'
+      # workaround: https://github.com/actions/virtual-environments/issues/1811
+      run: |
+        brew untap local/homebrew-openssl
+        brew untap local/homebrew-python2
+        brew update
+        brew install gobject-introspection gtk+ gtk+3
+
     - name: Install dependencies
       env:
         STACK_YAML: stack-${{ matrix.resolver }}.yaml
