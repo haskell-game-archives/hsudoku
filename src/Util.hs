@@ -24,7 +24,7 @@ nodups (x:xs) = x `notElem` xs && nodups xs
 -- | Splits a list into multiple lists of a given length.
 groupBy :: Int -> [a] -> [[a]]
 groupBy n [] = []
-groupBy n xs = (take n xs) : groupBy n (drop n xs)
+groupBy n xs = take n xs : groupBy n (drop n xs)
 
 -- | The reverse operation of groupBy.
 ungroup :: [[a]] -> [a]

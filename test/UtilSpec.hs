@@ -17,27 +17,27 @@ spec = do
             nodups ([] :: [Int]) `shouldBe` True
 
         it "should return true just for lists with no duplicates" $ property $
-            \xs -> nodups (xs :: [Int]) == (length xs == (length $ nub xs))
+            \xs -> nodups (xs :: [Int]) == (length xs == length (nub xs))
 
     describe "groupBy" $ do
         it "should return the empty list if given an empty list" $ property $
             \n -> groupBy n ([] :: [Int]) `shouldBe` ([] :: [[Int]])
 
         it "should create the right amount of groups" $ property $
-            \xs -> and $ map (\n ->
-                                 let groups  = length $ groupBy n (xs :: [Int])
-                                     predicted = case xs of
-                                                      [] -> 0
-                                                      _  -> if length xs `mod` n == 0
-                                                              then length xs `div` n
-                                                              else 1 + length xs `div` n
-                                 in groups == predicted) [1..10]
+            \xs -> all (\n ->
+                              let groups  = length $ groupBy n (xs :: [Int])
+                                  predicted = case xs of
+                                                  [] -> 0
+                                                  _  -> if length xs `mod` n == 0
+                                                          then length xs `div` n
+                                                          else 1 + length xs `div` n
+                              in groups == predicted) [1..10]
 
         it "should create the right group sizes" $ property $
-            \xs -> and $ map (\n ->
-                                let sizes = map length $ groupBy n (xs :: [Int])
-                                in all (<= n) sizes
-                             ) [1..10]
+            \xs -> all (\n ->
+                          let sizes = map length $ groupBy n (xs :: [Int])
+                          in all (<= n) sizes
+                        ) [1..10]
 
     describe "ungroup" $ do
         it "should return the empty list if given an empty list" $ property $

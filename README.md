@@ -1,6 +1,9 @@
 # λsudoku
 
-[![Travis](https://img.shields.io/travis/mmsbrggr/hsudoku.svg)](https://travis-ci.org/mmsbrggr/hsudoku)
+[![cabal](https://github.com/haskell-game-archives/hsudoku/workflows/cabal/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Acabal)
+[![stack](https://github.com/haskell-game-archives/hsudoku/workflows/stack/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Astack)
+[![lint](https://github.com/haskell-game-archives/hsudoku/workflows/lint/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Alint)
+
 [![GitHub issues](https://img.shields.io/github/issues/mmsbrggr/hsudoku.svg)](https://github.com/mmsbrggr/hsudoku/issues)
 [![GitHub stars](https://img.shields.io/github/stars/mmsbrggr/hsudoku.svg)](https://github.com/mmsbrggr/hsudoku/stargazers)
 ![GTK version](https://img.shields.io/badge/GTK-3.20-blue.svg)

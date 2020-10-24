@@ -11,11 +11,11 @@ main = hspec spec
 
 spec :: Spec
 spec = do
-    describe "buildSudokuUI" $ do
+    xdescribe "buildSudokuUI" $ do
         it "should actually return a UI data-structure and not fail" $ do
             _ <- Gtk.init Nothing
             ui <- buildSudokuUI
-            (length $ cells ui) `shouldSatisfy` (> 0)
-            (length $ gameButtons ui) `shouldSatisfy` (> 0)
-            (length $ numberButtons ui) `shouldSatisfy` (> 0)
+            length (cells ui) `shouldSatisfy` (> 0)
+            length (gameButtons ui) `shouldSatisfy` (> 0)
+            length (numberButtons ui) `shouldSatisfy` (> 0)
 

@@ -7,6 +7,8 @@ License     : MIT
 Provides various functions for building the user interface of the
 sudoku application.
 -}
+{-# LANGUAGE OverloadedLabels #-}
+{-# LANGUAGE OverloadedStrings #-}
 module UserInterface (
       BuilderCastException(..)
     , SudokuUI
@@ -43,6 +45,7 @@ import           Paths_hsudoku
 import           Sudoku.Loader
 import           Sudoku.Solver
 import           Sudoku.Type
+import Control.Monad
 
 -- | Thrown when 'castB' fails get an object.
 data BuilderCastException = UnknownIdException String deriving (Show, Typeable)
@@ -92,11 +95,11 @@ buildSudokuUI = do
 
 -- | The ids of the sudoku cells in the ui file.
 cellNames :: [T.Text]
-cellNames = map (T.pack . (++) "cell") $ map show [1..81]
+cellNames = map ((T.pack . (++) "cell") . show) [1..81]
 
 -- | The ids of the inputs for the numbers in the ui file.
 numberNames :: [T.Text]
-numberNames = map (T.pack . (++) "input") $ map show [1..9]
+numberNames = map ((T.pack . (++) "input") . show) [1..9]
 
 -- | The ids of the buttons which start a new game
 gameButtonNames :: [T.Text]
@@ -114,7 +117,7 @@ builderGetTyped builder ident gtype =
 
 -- | Same as builderGetTyped for a list of names.
 builderGetsTyped :: (GObject a, IsBuilder b, MonadIO m) => b -> [T.Text] -> (ManagedPtr a -> a) -> m [a]
-builderGetsTyped b is t = sequence $ map (\i -> builderGetTyped b i t) is
+builderGetsTyped b is t = mapM (\i -> builderGetTyped b i t) is
 
 -- | Builds the main application window from a xml definition file for which the
 --   path is given.
@@ -221,7 +224,7 @@ numberButtonInsert button popover = do
 writeSudoku :: Cells -> Sudoku -> IO ()
 writeSudoku cells sudoku = do
     let sudokuChars = toString sudoku
-    sequence_ $ zipWith (\c sc -> do
+    zipWithM_ (\c sc -> do
             writeCell c sc
             if sc == blankval
                 then c `set` [#sensitive := True]
@@ -232,7 +235,7 @@ writeSudoku cells sudoku = do
 writeSolution :: Cells -> Sudoku -> IO ()
 writeSolution cells sudoku = do
     let sudokuChars = toString sudoku
-    sequence_ $ zipWith (\c sc -> do
+    zipWithM_ (\c sc -> do
             #setName c (T.singleton sc)
         ) cells sudokuChars
 
