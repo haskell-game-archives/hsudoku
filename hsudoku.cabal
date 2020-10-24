@@ -14,7 +14,7 @@ category:           Game
 homepage:           https://github.com/marcelmoosbrugger/hsudoku
 bug-reports:        https://github.com/marcelmoosbrugger/hsudoku/issues
 build-type:         Simple
-tested-with:        GHC ==8.0.2
+tested-with:        GHC ==8.8.4 || ==8.10.2
 extra-source-files:
   gui/hsudoku.ui
   gui/icon.png
@@ -27,10 +27,29 @@ data-files:
 
 source-repository head
   type:     git
-  location: git@github.com:marcelmoosbrugger/hsudoku.git   
+  location: git@github.com:marcelmoosbrugger/hsudoku.git
+
+common common
+  build-depends:
+    , base    >=4.12 && <4.15
+    , gi-gtk  ^>=3.0
+
+  ghc-options:      -Wall
+  default-language: Haskell2010
 
 library
-  hs-source-dirs:     src
+  import:          common
+  hs-source-dirs:  src
+  build-depends:
+    , bytestring       >=0.10 && <0.12
+    , HandsomeSoup     ^>=0.4
+    , haskell-gi-base  ^>=0.24
+    , http-client      ^>=0.6 && <0.9
+    , http-client-tls  ^>=0.3
+    , hxt              ^>=9.3
+    , text             ^>=1.2
+
+  -- cabal-fmt: expand src
   exposed-modules:
     Sudoku.Loader
     Sudoku.Solver
@@ -38,63 +57,28 @@ library
     UserInterface
     Util
 
-  other-modules:      Paths_hsudoku
-  build-depends:
-    , base
-    , bytestring
-    , gi-gtk
-    , HandsomeSoup
-    , haskell-gi-base
-    , http-client
-    , http-client-tls
-    , hxt
-    , text
-
-  default-language:   Haskell2010
-  default-extensions:
-    OverloadedLabels
-    OverloadedStrings
+  other-modules:   Paths_hsudoku
 
 executable hsudoku
-  ghc-options:        -threaded
-  main-is:            Hsudoku.hs
+  import:        common
+  main-is:       app/Hsudoku.hs
   build-depends:
-    , base
-    , bytestring
-    , gi-gtk
-    , HandsomeSoup
-    , haskell-gi-base
+    , haskell-gi-base  ^>=0.24
     , hsudoku
-    , http-client
-    , http-client-tls
-    , hxt
-    , text
 
-  hs-source-dirs:     src
-  default-language:   Haskell2010
-  default-extensions:
-    OverloadedLabels
-    OverloadedStrings
+  ghc-options:   -O2
 
 test-suite spec
-  type:               exitcode-stdio-1.0
-  ghc-options:        -Wall
-  main-is:            Spec.hs
-  hs-source-dirs:     test
+  import:         common
+  type:           exitcode-stdio-1.0
+  hs-source-dirs: test
+  main-is:        Spec.hs
   build-depends:
-    , base
-    , bytestring
-    , gi-gtk
-    , HandsomeSoup
-    , haskell-gi-base
-    , hspec
+    , hspec       ^>=2.7
     , hsudoku
-    , http-client
-    , http-client-tls
-    , hxt
-    , QuickCheck
-    , text
+    , QuickCheck  >=2.13 && <2.15
 
+  -- cabal-fmt: expand test -Spec
   other-modules:
     Sudoku.LoaderSpec
     Sudoku.SolverSpec
@@ -102,42 +86,3 @@ test-suite spec
     TestData
     UserInterfaceSpec
     UtilSpec
-
-  default-language:   Haskell2010
-  default-extensions:
-    OverloadedLabels
-    OverloadedStrings
-
--- Travis does not support ubuntu 16.04 yet and therefore
--- GTK+ 3.20 cannot be installed. As the user interface
--- uses new features from GTK+ 3.20, these cannot be tested on travis
-test-suite travis
-  type:               exitcode-stdio-1.0
-  ghc-options:        -Wall
-  main-is:            Travis.hs
-  hs-source-dirs:     test
-  build-depends:
-    , base
-    , bytestring
-    , gi-gtk
-    , HandsomeSoup
-    , haskell-gi-base
-    , hspec
-    , hsudoku
-    , http-client
-    , http-client-tls
-    , hxt
-    , QuickCheck
-    , text
-
-  other-modules:
-    Sudoku.LoaderSpec
-    Sudoku.SolverSpec
-    Sudoku.TypeSpec
-    TestData
-    UtilSpec
-
-  default-language:   Haskell2010
-  default-extensions:
-    OverloadedLabels
-    OverloadedStrings

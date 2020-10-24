@@ -1,0 +1,6 @@
+resolver: nightly-2020-10-18 # ghc-8.10.2
+extra-deps:
+- gi-harfbuzz-0.0.3
+- gi-pango-1.0.23         # https://github.com/haskell-gi/haskell-gi/issues/312
+- haskell-gi-0.24.5       # https://github.com/haskell-gi/haskell-gi/issues/318
+- haskell-gi-base-0.24.3
