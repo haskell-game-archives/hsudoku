@@ -18,6 +18,7 @@ jobs:
       matrix:
         # os: [ubuntu-18.04, macos-10.15]
         os: [ubuntu-18.04]
+        # resolver: ["lts-14", "lts-16", "nightly"]
         resolver: ["lts-16", "nightly"]
 
     steps:

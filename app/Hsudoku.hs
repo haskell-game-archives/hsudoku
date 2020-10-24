@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedLabels #-}
+
 -- |
 -- Module: Main
 -- Description: The main module of the sudoku executable
@@ -6,7 +8,6 @@
 --
 -- Contains the main function which sets up the UI of the
 -- sudoku executable.
-{-# LANGUAGE OverloadedLabels #-}
 module Main where
 
 import Data.GI.Base
