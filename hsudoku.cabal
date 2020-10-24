@@ -44,7 +44,7 @@ library
     , bytestring       >=0.10 && <0.12
     , HandsomeSoup     ^>=0.4
     , haskell-gi-base  ^>=0.24
-    , http-client      ^>=0.6
+    , http-client      ^>=0.6 && <0.9
     , http-client-tls  ^>=0.3
     , hxt              ^>=9.3
     , text             ^>=1.2
