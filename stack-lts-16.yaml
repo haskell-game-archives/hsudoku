@@ -1,5 +1,7 @@
 resolver: lts-16.18 # ghc-8.8.4
 extra-deps:
+- gi-harfbuzz-0.0.3
+- gi-pango-1.0.23
 - haskell-gi-0.24.5
 - haskell-gi-base-0.24.3
 allow-newer: true
