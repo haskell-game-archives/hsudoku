@@ -23,7 +23,7 @@ nodups (x:xs) = x `notElem` xs && nodups xs
 
 -- | Splits a list into multiple lists of a given length.
 groupBy :: Int -> [a] -> [[a]]
-groupBy n [] = []
+groupBy _ [] = []
 groupBy n xs = take n xs : groupBy n (drop n xs)
 
 -- | The reverse operation of groupBy.
@@ -32,7 +32,7 @@ ungroup = concat
 
 -- | Is true iff a given list contains exactly one element.
 single :: [a] -> Bool
-single [a] = True
+single [_] = True
 single _   = False
 
 -- | Removes the elements of the first list from the second list.

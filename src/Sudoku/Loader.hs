@@ -5,7 +5,6 @@
 -- License     : MIT
 --
 -- This module contains functions to load sudokus from the internet.
-{-# LANGUAGE OverloadedLabels #-}
 module Sudoku.Loader (loadSudoku) where
 
 import Data.ByteString.Lazy.Char8 (unpack)
