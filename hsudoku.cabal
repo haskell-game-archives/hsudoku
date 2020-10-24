@@ -14,7 +14,7 @@ category:           Game
 homepage:           https://github.com/marcelmoosbrugger/hsudoku
 bug-reports:        https://github.com/marcelmoosbrugger/hsudoku/issues
 build-type:         Simple
-tested-with:        GHC ==8.6.5 || ==8.8.4 || ==8.10.2
+tested-with:        GHC ==8.8.4 || ==8.10.2
 extra-source-files:
   gui/hsudoku.ui
   gui/icon.png
@@ -33,6 +33,9 @@ common common
   build-depends:
     , base    >=4.12 && <4.15
     , gi-gtk  ^>=3.0
+
+  -- build-tool-depends:
+  --   hsc2hs:hsc2hs>=0.68.6
 
   ghc-options:      -Wall
   default-language: Haskell2010
@@ -76,6 +79,7 @@ test-suite spec
     , hsudoku
     , QuickCheck  >=2.13 && <2.15
 
+  -- cabal-fmt: expand test -Spec
   other-modules:
     Sudoku.LoaderSpec
     Sudoku.SolverSpec
