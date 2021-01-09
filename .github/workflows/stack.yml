@@ -32,9 +32,7 @@ jobs:
 
     - name: Install libralies (mac)
       if: runner.os == 'macOS'
-      run: |
-        brew update
-        brew install gobject-introspection gtk+ gtk+3
+      run: brew install gobject-introspection gtk+ gtk+3
 
     - name: Install dependencies
       env:
