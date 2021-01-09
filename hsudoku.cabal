@@ -14,7 +14,7 @@ category:           Game
 homepage:           https://github.com/marcelmoosbrugger/hsudoku
 bug-reports:        https://github.com/marcelmoosbrugger/hsudoku/issues
 build-type:         Simple
-tested-with:        GHC ==8.8.4 || ==8.10.2
+tested-with:        GHC ==8.8.4 || ==8.10.3
 extra-source-files:
   gui/hsudoku.ui
   gui/icon.png
@@ -32,7 +32,7 @@ source-repository head
 common common
   build-depends:
     , base    >=4.12 && <4.15
-    , gi-gtk  ^>=3.0
+    , gi-gtk  >=3.0  && <5.0
 
   ghc-options:      -Wall
   default-language: Haskell2010
@@ -44,7 +44,7 @@ library
     , bytestring       >=0.10 && <0.12
     , HandsomeSoup     ^>=0.4
     , haskell-gi-base  ^>=0.24
-    , http-client      ^>=0.6 && <0.9
+    , http-client      >=0.6  && <0.8
     , http-client-tls  ^>=0.3
     , hxt              ^>=9.3
     , text             ^>=1.2
