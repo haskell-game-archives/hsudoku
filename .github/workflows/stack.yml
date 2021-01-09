@@ -2,11 +2,8 @@ name: stack
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
-    branches:
-      - '*'
   schedule:
     - cron: "00 15 * * *"
 
@@ -21,7 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-haskell@v1
+    - uses: haskell/actions/setup@v1
       with:
         ghc-version: "8.8.4"
         stack-version: "2.5.1"
@@ -35,10 +32,7 @@ jobs:
 
     - name: Install libralies (mac)
       if: runner.os == 'macOS'
-      # workaround: https://github.com/actions/virtual-environments/issues/1811
       run: |
-        brew untap local/homebrew-openssl
-        brew untap local/homebrew-python2
         brew update
         brew install gobject-introspection gtk+ gtk+3
 

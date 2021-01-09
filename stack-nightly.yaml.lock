@@ -3,38 +3,10 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages:
-- completed:
-    hackage: gi-harfbuzz-0.0.3@sha256:0550f498854b7edac66b1a09f283e5b5c86033aff58b4ac30b024ae59e1bd866,5869
-    pantry-tree:
-      size: 364
-      sha256: f33e284484ab7520bb115508fe1ddae5585e42aa292c97f4f6abb2e7ec3d60eb
-  original:
-    hackage: gi-harfbuzz-0.0.3
-- completed:
-    hackage: gi-pango-1.0.23@sha256:160443e93def8aa95e66fe1de40d51bb12ee922f7cafe6e33d6009f5490c66c5,8233
-    pantry-tree:
-      size: 360
-      sha256: fc5b1f6835549f148284950ab540df9d9f4d7a75df958b5de5e4c01d922dcb37
-  original:
-    hackage: gi-pango-1.0.23
-- completed:
-    hackage: haskell-gi-0.24.5@sha256:a7a29f3bd532c3a36c64d5c0b6d7cc0ab990ace22029e4a3b1daae3f545d5989,5241
-    pantry-tree:
-      size: 4348
-      sha256: 4d8864a46675e648638091f1f443bfd828a0fb8b3527db3335821006866575cd
-  original:
-    hackage: haskell-gi-0.24.5
-- completed:
-    hackage: haskell-gi-base-0.24.3@sha256:7a5e0d2c9c441b8d5f2da5a79a197885e00acf4a0facea4fc1da00e637045f70,2392
-    pantry-tree:
-      size: 1866
-      sha256: c7be050613627ee35bcd19f57f56e858022ddf1490526a0326c52ea653a84831
-  original:
-    hackage: haskell-gi-base-0.24.3
+packages: []
 snapshots:
 - completed:
-    size: 539714
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2020/10/18.yaml
-    sha256: 244324c856b80dc0ee2f084de73a48a7b1ee24553dabf272fafedc0192dfe8a5
-  original: nightly-2020-10-18
+    size: 562051
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2021/1/5.yaml
+    sha256: be105362ec57d665ea17fa574ab195c49bb1f9a5bd9016174ef83cd368fba253
+  original: nightly-2021-01-05

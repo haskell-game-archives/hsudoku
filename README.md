@@ -3,6 +3,8 @@
 [![cabal](https://github.com/haskell-game-archives/hsudoku/workflows/cabal/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Acabal)
 [![stack](https://github.com/haskell-game-archives/hsudoku/workflows/stack/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Astack)
 [![lint](https://github.com/haskell-game-archives/hsudoku/workflows/lint/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Alint)
+[![format](https://github.com/haskell-game-archives/hsudoku/workflows/format/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Aformat)
+[![outdated](https://github.com/haskell-game-archives/hsudoku/workflows/outdated/badge.svg)](https://github.com/haskell-game-archives/hsudoku/actions?query=workflow%3Aoutdated)
 
 [![GitHub issues](https://img.shields.io/github/issues/mmsbrggr/hsudoku.svg)](https://github.com/mmsbrggr/hsudoku/issues)
 [![GitHub stars](https://img.shields.io/github/stars/mmsbrggr/hsudoku.svg)](https://github.com/mmsbrggr/hsudoku/stargazers)
